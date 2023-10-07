@@ -2,8 +2,8 @@ import "../styles/index.scss"
 
 
 export const metadata = {
-  title: 'Investment Gate',
-  description: 'Investment Gate – Rwanda – Malawi – Congo (DRC)',
+  title: 'Artier Medical – New Age New Life',
+  description: 'Artier Medical – New Age New Life',
   icons : {
     icon : [
       '/images/favicon.png'

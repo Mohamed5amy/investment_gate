@@ -3,33 +3,41 @@
 
 // Start Nav
 nav {
-  background-color: gray;
+  background-color: $primary;
   padding: 0px 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
+
+  button {
+    padding: 15px 60px;
+    background-color: white;
+    color: $primary;
+    font-size: 16px;
+    font-weight: 500;
+    @include rad(8px);
+    cursor: pointer;
+    border: 2px solid white;
+    @include tra(.5s);
+
+    &:hover {
+      color: white;
+      background-color: $primary;
+    }
+  }
 }
 @media (max-width: 900px) {
   nav {
     padding: 0px 20px;
-    justify-content: center;
-
-    .btn-17 { display: none; }
   }
+}
+@media (max-width: 600px) {
+  nav button {display: none;}
+  nav { justify-content: center; }
 }
 // End Nav
 
-// start title
-h2 {
-  font-size: 60px;
-  font-weight: bold;
-  background:linear-gradient( to right top, $primary , black ) ;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 20px;
-}
-// end title
 
 // Start Hero
 section {
@@ -37,21 +45,64 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 100px;
+  padding: 0 200px 0 100px;
   position: relative;
+
+  .leaf {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .leafR {
+    position: absolute;
+    top: 0px;
+    right:0px;
+    z-index: 2;
+  }
 
   img {
     max-width: 100%;
+    flex: 1;
   }
 
   .titles {
     
     h3 {
-      color: gray;
-      max-width: 500px;
+      color: #606060;
+      font-weight: 500;
+      max-width: 630px;
       line-height: 1.5;
+      margin-bottom: 80px;
+      font-size: 16px;
+    }
+
+    h2 {
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 800;
+      color: $primary;
       margin-bottom: 40px;
     }
+
+    button {
+      padding: 15px 100px;
+      background-color: $primary;
+      color: white;
+      font-weight: 500;
+      @include rad(8px);
+      cursor: pointer;
+      border: 2px solid $primary;
+      @include tra(.5s);
+      font-size: 16px;
+
+      &:hover {
+        color: $primary;
+        background-color: white;
+      }
+    }
+    
     min-width: 50%;
   }
   
@@ -74,6 +125,10 @@ section {
     height: auto;
     padding: 50px 20px;
 
+    .leafR {
+      display: none;
+    }
+
     .titles {
       h2 {
         font-size: 40px;
@@ -83,281 +138,259 @@ section {
 }
 // End Hero
 
-// Start Products
-.Products {
-  padding: 100px;
 
-  h2 {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-
-  .swiper-slide {
-    width: 300px;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    @include rad(12px);
-    overflow: hidden;
+// Start Services
+.Services {
+  padding: 120px 100px 0;
+  h3 {
+    color: #333;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
     position: relative;
-    z-index: 3;
+    text-transform: capitalize;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 16px;
+    margin-bottom: 80px;
 
     &::before {
       content: "";
-      width: 100%;
-      height: 100%;
-      position:absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      @include tra(.5s);
-      opacity: 0;
-      background-color: rgba(0, 0, 0, 0.325);
-    }
-
-    .name {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2;
-      opacity: 0;
-      font-size: 28px;
-      @include tra(.5s);
-      font-weight: bold;
-      color: white;
+      width: 100px;
+      height: 3px;
+      background-color: $primary;
+      bottom: 0;
+      left: 50%;
+      @include center((-50% , 0));
     }
+  }
+}
+@media (max-width: 900px) {
+  .Services {  
+    padding: 80px 20px 0;
+  
+  }
+}
+// End Services
 
-    .name {
-      transform: scale(.8);
-      -webkit-transform: scale(.8);
-      -moz-transform: scale(.8);
-      -ms-transform: scale(.8);
-      -o-transform: scale(.8);
+// Start Products
+.Department {
+
+  margin-bottom: 80px;
+  
+  h2 {
+    color: #333;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    position: relative;
+    text-transform: capitalize;
+    padding-bottom: 16px;
+    margin-bottom: 40px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 3px;
+      background-color: $primary;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .swiper-slide {
+
+    border: 1px solid #F0F0F0;
+    @include rad(8px);
+    overflow: hidden;
+    
+    h4 {
+      color: #000;
+      text-align: center;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      padding: 25px 0;
+      width: 100%;
+      background-color: white;
+      z-index: 3;
+      position: relative;
+      @include tra(.5s);
     }
     
-    &:hover {
-
-      .name {
-        opacity: 1;
-        transform: scale(1);
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-      }
-
-      &::before {
-        opacity: 1;
-      }
-      
-      -webkit-box-shadow: inset 0px 0px 60px -5px rgba(237, 110, 71, 0.594);
-      -moz-box-shadow: inset 0px 0px 60px -5px rgba(237,110,71,1);
-      box-shadow: inset 0px 0px 60px -5px rgba(237,110,71,1);
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: fill;
+      @include tra(.5s);
+      position: relative;
+      z-index: 2;
     }
 
-    img {
-      max-width: 300px;
-      max-height: 300px;
-      object-fit: contain;
+    &:hover {
+
+      img {
+        transform: scale(1.03) rotate(1deg);
+        -webkit-transform: scale(1.03) rotate(1deg);
+        -moz-transform: scale(1.03) rotate(1deg);
+        -ms-transform: scale(1.03) rotate(1deg);
+        -o-transform: scale(1.03) rotate(1deg);
+}
+
+      h4 { color: $primary; }
+      
     }
     
   }
 }
-@media (max-width: 900px) {
-  .Products {
-    padding: 100px 20px;
-  
+@media (max-width: 600px) {
+  .Department {  
+    margin-bottom: 40px;
+
+    .swiper-slide img {
+      height: 150px;
+    }
+    
     h2 {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
   
   }
 }
 // End Products
 
-// Start Contact
-.contact {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0;
-
-  form {
-
-    height: 100%;
-    width: 50%;
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-
-    .form-container {
-      display: block;
-      width: 100%;
-
-      > div {
-        display: flex;
-        gap: 12px;
-        margin-bottom: 20px;
-      }
-      
-    }
-
-    h3 {  
-      color: gray;
-      margin-bottom: 40px;
-    }
-
-    input , textarea {
-      border: none;
-      outline: none;
-      background-color: #eeeeee6d;
-      padding: 20px;
-      @include rad(20px);
-      @include tra(.5s);
-      flex: 1;
-      font-size: 16px;
-      color: $primary;
-
-      &::placeholder {
-        font-size: 16px;
-        font-weight: 500;
-      }
-
-      &:focus {
-        @include rad(0);
-      }
-    }
-
-    textarea {width: 100%;}
-
-    .btn-17 {
-      margin-top: 20px;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      width: 30%;
-    }
-    
-  }
-  
-  .image {
-    height: 100%;
-    width: 50%;
-    background-color: $primary;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img {max-width: 90%;}
-  }
-  
-}
-
-@media (max-width:900px) {
-  .contact {
-    height: auto;
-    flex-direction: column-reverse;
-  
-    form {
-      width: 100%;
-      height: auto;
-
-      .form-container {
-        > div {
-          flex-direction: column;
-          gap: 20;
-        }
-        
-      }
-  
-      h2 {
-        font-size: 40px ;
-      }
-  
-  
-      .btn-17 {
-        width: 100%;
-      }
-      
-    }
-    
-    .image {
-      height: auto;
-      width: 100%;
-      background-color: white;
-    }
-    
-  }
-}
-// End Contact
-
-
 // Start Social
 .Social {
   padding: 100px;
-  @include grid(300px);
+  background-color: #FEF3F6;
+  h3 {
+    color: #333;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    position: relative;
+    text-transform: capitalize;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
 
-  .box {
-    background-color: white;
-    @include rad(12px);
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 3px;
+      background-color: $primary;
+      bottom: 0;
+      left: 50%;
+      @include center((-50% , 0));
+    }
+  }
+  h4 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+  .social-icons {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    padding: 50px 0;
-    gap: 12px ;
-    @include tra(.5s);
+    margin-bottom: 80px;
+    gap: 8px;
 
-    &:hover {
-      transform: translateY(-5px);
-      -webkit-transform: translateY(-5px);
-      -moz-transform: translateY(-5px);
-      -ms-transform: translateY(-5px);
-      -o-transform: translateY(-5px);
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 4px;
 
       svg {
+        fill: $primary;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        opacity: .7;
+        @include tra(.5s);
 
-        color: gray;
-        
-        transform: rotate(360deg);
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
+        &:hover {
+          opacity: 1;
+          transform: translateY(-3px);
+          -webkit-transform: translateY(-3px);
+          -moz-transform: translateY(-3px);
+          -ms-transform: translateY(-3px);
+          -o-transform: translateY(-3px);
+        }
       }
-
-      span {color: $primary;}
-
-      box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    }
+  }
+  
+  .container {
+    @include grid(300px);
+  
+    .box {
+      background-color: white;
+      @include rad(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 50px 0;
+      gap: 12px ;
+      @include tra(.5s);
+  
+      &:hover {
+        transform: translateY(-5px);
+        -webkit-transform: translateY(-5px);
+        -moz-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        -o-transform: translateY(-5px);
+  
+        svg {
+  
+          color: gray;
+          
+          transform: rotate(360deg);
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+        }
+  
+        span {color: $primary;}
+  
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        
+      }
       
-    }
-    
-    
-    svg {
-      width: 50px;
-      height: 50px;
-      color: $primary;
-      @include tra(.5s);
-    }
-    span {
-      font-size: 20px;
-      color: gray;
-      @include tra(.5s);
-      font-weight: 500;
+      
+      svg {
+        width: 50px;
+        height: 50px;
+        color: $primary;
+        @include tra(.5s);
+      }
+      span {
+        font-size: 20px;
+        color: gray;
+        @include tra(.5s);
+        font-weight: 500;
+      }
     }
   }
 }
 @media (max-width:900px) {
   .Social {
-    padding: 100px 20px;
-    @include grid(300px);
+    padding: 50px 20px;
+    .container {
+      @include grid(300px);
+    }
 
   }
 }
@@ -365,7 +398,8 @@ section {
 
 // Start Footer
 footer {
-  background-color: #EEE;
+  background-color: $primary;
+  color: #F5F5F5;
   padding: 50px 20px;
   text-align: center;
   h2 {
@@ -382,149 +416,6 @@ footer {
 }
 // end Footer
 
-
-// Start Button 
-.btn-17,
-.btn-17 *,
-.btn-17 :after,
-.btn-17 :before,
-.btn-17:after,
-.btn-17:before {
-  border: 0 solid;
-  box-sizing: border-box;
-  text-transform: none;
-}
-
-.btn-17 {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: button;
-  background-image: none;
-  color: #fff;
-  cursor: pointer;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-size: 100%;
-  font-weight: 900;
-  line-height: 1.5;
-  margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-  padding: 0;
-  text-transform: uppercase;
-}
-
-.btn-17:disabled {
-  cursor: default;
-}
-
-.btn-17:-moz-focusring {
-  outline: auto;
-}
-
-.btn-17 svg {
-  display: block;
-  vertical-align: middle;
-}
-
-.btn-17 [hidden] {
-  display: none;
-}
-
-.btn-17 {
-  border-radius: 99rem;
-  border-width: 2px;
-  padding: 0.8rem 3rem;
-  z-index: 0;
-}
-
-.btn-17,
-.btn-17 .text-container {
-  overflow: hidden;
-  position: relative;
-}
-
-.btn-17 .text-container {
-  display: block;
-  mix-blend-mode: difference;
-}
-
-.btn-17 .text {
-  display: block;
-  position: relative;
-}
-
-.btn-17:hover .text {
-  -webkit-animation: move-up-alternate 0.3s forwards;
-  animation: move-up-alternate 0.3s forwards;
-}
-
-@-webkit-keyframes move-up-alternate {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(80%);
-  }
-
-  51% {
-    transform: translateY(-80%);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes move-up-alternate {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(80%);
-  }
-
-  51% {
-    transform: translateY(-80%);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
-.btn-17:after,
-.btn-17:before {
-  --skew: 0.2;
-  background: $primary;
-  content: "";
-  display: block;
-  height: 102%;
-  left: calc(-50% - 50% * var(--skew));
-  pointer-events: none;
-  position: absolute;
-  top: -104%;
-  transform: skew(calc(150deg * var(--skew))) translateY(var(--progress, 0));
-  transition: transform 0.2s ease;
-  width: 100%;
-}
-
-.btn-17:after {
-  --progress: 0%;
-  left: calc(50% + 50% * var(--skew));
-  top: 102%;
-  z-index: -1;
-}
-
-.btn-17:hover:before {
-  --progress: 100%;
-}
-
-.btn-17:hover:after {
-  --progress: -102%;
-}
-// End Button 
 
 
 // Start Bouncing Animation

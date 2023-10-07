@@ -1,15 +1,14 @@
 import logo from "../../public/images/logo.svg"
 import Image from 'next/image'; 
 import "./styles.scss"
-import Button from "./Button";
 import Link from "next/link";
 
 const Navbar = () => {
   return (
     <nav>
 
-      <Image src={logo} alt='logo' />
-      <Link href={"#contact"} ><Button color={"white"} /></Link>
+      <Link href={"/"} > <Image src={logo} alt='logo' width={"auto"} height={"auto"} /> </Link>
+      <Link href={"#contact"} ><button> Contact Us </button></Link>
       
     </nav>
   )
